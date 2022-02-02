@@ -1,0 +1,39 @@
+{% extends 'index.html' %}
+
+{% block title %}
+Articles
+{% endblock title %}
+
+ {% block body %}
+<div class="container">
+
+ <h3>Articles</h3>
+ <hr>
+ <form class="form-inline my-2 my-lg-0" action="/search" method="post" > 
+    <input class=" mr-sm-2" name="keyword" type="search" placeholder="Search" aria-label="Search">
+    <button class="btn btn-danger my-2 my-sm-0" type="submit">Search</button>
+  </form>
+  <br>
+ {% if articles %}
+    {% for article in articles %}
+        <div class="list-group">
+            <a href="article/{{article.id|safe}}" class="list-group-item list-group-item-action flex-column align-items-start active">
+            <div class="d-flex w-100 justify-content-between">
+                <h5 class="mb-1">{{article.title|safe}}</h5>
+                <small>{{article.created_date|safe}}</small>
+            </div>
+            <p class="mb-1">{{article.content|safe}}</p>
+            <small>{{article.id|safe}}</small>
+            </a>
+        </div>
+        <br>
+    {% endfor %}
+{% else %}
+<div class="alert alert-danger">There aren't any Articles.</div>
+{% endif %}
+
+</div>
+{% endblock body %}
+
+
+

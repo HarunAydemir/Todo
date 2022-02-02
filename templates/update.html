@@ -1,0 +1,21 @@
+{% extends 'index.html' %}
+
+{% block body %}
+<div class="container">
+    <h3>Update Article</h3>
+    <hr>
+    {% from "includes/formhelpers.html" import render_field %}
+
+    <form method="post">
+
+        {{ render_field(form.title,class="form-control") }}
+ 
+        {{ render_field(form.content,class="form-control") }}   
+      
+
+    <button type="submit" class="btn btn-danger">Update</button>
+</form>
+</div>
+
+
+{% endblock body %}

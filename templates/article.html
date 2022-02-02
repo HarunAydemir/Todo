@@ -1,0 +1,23 @@
+{% extends 'index.html' %}
+
+{% block body %}
+
+<div class="container">
+{% if article %}
+<h4>{{article.title|safe}}</h4>
+<hr>
+Author:{{article.author|safe}}
+<hr>
+Date:{{article.created_date|safe}}
+<hr>
+{{article.content|safe}}
+{% else %}
+<div class="alert alert-warning">
+    There is no article.
+</div>
+
+{% endif %}
+
+</div>
+
+{% endblock body %}
